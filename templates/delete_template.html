@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+
+
+   <main class="formPage my-xl">
+      <div class="content-box">
+          <div class="formWrapper">
+              
+              <br>
+
+              <form class="form" method="POST">
+               {% csrf_token %}
+                  <h3>do you want to remove {{object}} from skills?</h3>
+                  <a href="{{ request.GET.next }}" class="btn btn--sub btn--lg  my-md">
+                   
+                        Go Back
+                    
+                  </a>                                  
+                  
+                  <input class="btn btn--sub btn--lg  my-md" type="submit" value="Confirm" />
+              </form>
+
+          </div>
+      </div>
+  </main>
+
+
+
+{% endblock %}

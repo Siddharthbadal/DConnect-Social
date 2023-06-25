@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %} 
+
+
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <h2>
+                Password Reset
+            </h2>
+            <h5>
+                Enter your password
+            </h5>
+            <p>
+                Please enter your password and confirm it.
+            </p>
+            
+            
+            <br>
+
+            <form class="form" method="POST">
+                {% csrf_token %}
+                <!-- Input:Text -->
+            <p>
+                {{form.as_p}} 
+            </p>
+                <br>
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+</main>
+
+<br>
+<br>
+
+
+{% endblock %}

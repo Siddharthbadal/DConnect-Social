@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+  <main class="messagePage my-xl">
+    <div class="content-box">
+      <div class="message">
+        <a class="backButton" href="{% url 'inbox' %}">
+          <span style="font-size:30px;"> < </span>
+          <i class="im im-angle-left"></i></a>
+        <h2 class="message__subject">{{message.subject}}</h4>
+          <a href="profile.html" class="message__author">
+            {{message.name}}
+          </a>
+          <p class="message__date">Recevied at: {{message.created_at}}</p>
+          <div class="message__body">
+            {{message.body|linebreaksbr}}
+          </div>
+          <br>
+          {% comment %} {% if message.is_read %}
+          <p class="message__date">Viewd on: {{message.read_at}}</p>
+          {% endif %} {% endcomment %}
+      </div>
+    </div>
+  </main>
+
+
+{% endblock content %}

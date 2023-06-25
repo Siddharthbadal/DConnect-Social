@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Skills</h1>
+    <div class="content-box">
+        <div class="formWrapper">
+            <a href="{% url 'useraccount' %}">
+                <i class="im im-angle-left">Back</i>
+            </a>
+
+    
+    <form action="" method ="POST">
+        {% csrf_token %}
+
+        {% for field in form %} 
+        <div class="form__field">
+            <label for="formInput#text">
+                <strong>
+                    {{ field.label}}
+                </strong>
+             </label>
+            {{field}}
+        </div> 
+        {% endfor %}
+        <input type="submit" value="submit">
+    </form>
+</div>
+</div>
+
+{% endblock %}

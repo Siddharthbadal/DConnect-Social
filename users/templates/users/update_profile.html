@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!-- Main Section -->
+    <main class="formPage my-xl">
+        <div class="content-box">
+            <div class="formWrapper">
+                <a class="backButton" href="{% url 'useraccount' %}"><i class="im im-angle-left">Back</i></a>
+                <br>
+
+    <form method ="POST" action="{% url 'updateaccount' %}" enctype="multipart/form-data"> 
+        <!-- Input:Text -->
+        {% csrf_token %}
+
+        {% for field in form %} 
+        <div class="form__field">
+            <label for="formInput#text">
+                <strong>
+                    {{ field.label}}
+                </strong>
+             </label>
+            {{field}}
+        </div> 
+        {% endfor %}
+        
+
+       
+        <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+    </form>
+</div>
+</div>
+</main>
+
+
+{% endblock %}
