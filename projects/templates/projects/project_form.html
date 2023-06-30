@@ -5,7 +5,7 @@
 
 
 
-<body>
+
     <!-- Header Section -->
 
     <!-- Main Section -->
@@ -27,18 +27,37 @@
                     </div>
 
                     {% endfor %}
+
+
+                    {% comment %} # project tags  {% endcomment %}
+                    <div class="form__field">
+                        {% for tag in project.tags.all %}
+                            <div class='project-tag tag tag--pill tag--main' data-tag="{{tag.id}}" data-project="{{project.id}}">
+                                {{tag.name}} &#215;
+                            </div>
+                        {% endfor %}
+                    </div>
                     
-                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+
+
+                {% comment %} project rags input {% endcomment %}
+            <div class="form__field">
+                <label for="formInput#text">{{field.label}} </label>
+                <textarea class='input' name="newtags" id="" cols="30" rows="3" placeholder='add tech seperated by space'></textarea>
+                
+            </div>
+                    
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
                 
                 
                 </form>
             </div>
         </div>
-
-
     </main>
-</body>
 
+<script>
+    
+</script>
 
 
 {% endblock %}

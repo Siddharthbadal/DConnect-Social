@@ -16,7 +16,7 @@
           <div class="singleProject__toolStack">
             {% for tag in project.tags.all %}
             <span class="tag tag--pill tag--sub tag--lg">
-              <small>{{tag}}</small>
+              <small>{{tag | upper}}</small>
             </span>
            
             {% endfor %}
