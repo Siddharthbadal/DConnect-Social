@@ -8,5 +8,9 @@ Create groups and start sharing your ideas and projects with others.
     - Django
     - Django Rest Framework
     - PostgreSQL
-    - AWS
+    - AWS S3
     - Render App 
+
+
+project is work in progress. 
+Live link:  https://dconnect.onrender.com/account/
