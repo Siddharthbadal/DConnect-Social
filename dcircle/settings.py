@@ -144,6 +144,7 @@ WSGI_APPLICATION = 'dcircle.wsgi.application'
 # }
 
 
+
 DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL'))
 }
