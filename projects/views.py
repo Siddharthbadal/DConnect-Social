@@ -42,6 +42,7 @@ def project(request, pk):
    }
    return render(request, "projects/one-project.html", context)  
 
+
 @login_required(login_url='userlogin')
 def createProject(request):
    profile = request.user.profile

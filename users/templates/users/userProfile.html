@@ -9,6 +9,7 @@
     <div class="container">
       <div class="layout">
         <div class="column column--1of3">
+
           <div class="card text-center">
 
             
@@ -45,11 +46,26 @@
               </ul>
 
               <a href="{% url 'createmessage' profile.id %}" class="btn btn--sub btn--lg">Send Message </a>
+                <br> <br>
+              <a href="{% url 'projectrooms' %}" class="btn btn--sub btn--lg">Group Activity </a>
             </div>
           </div>
+
+          <div>
+           
+        </div>
+
+
         </div>
 
         
+
+        
+
+
+
+
+
         <div class="column column--2of3">
 
           <div class="devInfo">
@@ -84,6 +100,24 @@
                 {% endfor %}
               
               </div>
+                <br>
+
+              <h3 class="devInfo__subtitle">Project Groups</h3>
+              <div class="devInfo__otherSkills">
+                  {% for room in rooms %}
+                <span class="tag tag--pill tag--sub tag--lg">
+                  <small>
+                    <a href="{% url 'projectroom' room.id %}">{{room | title}}</a>
+                  </small>
+                </span>
+                {% endfor %}
+              
+              </div>
+
+
+
+
+
             </div>
           </div>
 
@@ -123,6 +157,12 @@
             </div>
           </div>
         </div>
+
+        
+
+
+
+
       </div>
     </div>
 

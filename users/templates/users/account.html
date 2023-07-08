@@ -44,7 +44,7 @@
                 {% endif %}
               </ul>
 
-              <a href="#" class="btn btn--sub btn--lg">Send Message </a>
+              <a href="{% url 'createmessage' profile.id %}" class="btn btn--sub btn--lg">Send Message </a>
             </div>
           </div>
         </div>
@@ -106,6 +106,43 @@
             </tr>
            {% endfor %}
           </table>
+
+
+          <div class="settings">
+            <h3 class="settings__title">Discord Rooms</h3>
+            <a class="tag tag--pill tag--sub settings__btn tag--lg" href="{% url 'createroom' %}"><i class="im im-plus"></i> Add Room</a>
+          </div>
+
+          <table class="settings__table">
+            {% for room in rooms %}
+            <tr>
+              <td class="settings__thumbnail">
+                {% comment %} <a href="{% url 'room' room.id %}"><img src="{{ project.image.url }}" alt="Project Thumbnail" /></a> {% endcomment %}
+              </td>
+              <td class="settings__tableInfo">
+                <a href="{% url 'projectroom' room.id %}">{{ room.name }}</a>
+                <p>
+                  {{room.description|slice:'100'}}
+                </p>
+              </td>
+              <td class="settings__tableActions">
+                <a class="tag tag--pill tag--main settings__btn" href="{% url 'updateroom' room.id %}"><i class="im im-edit"></i> Edit</a>
+                <a class="tag tag--pill tag--main settings__btn" href="{% url 'deleteroom' room.id %}?next=/account"><i class="im im-x-mark-circle-o"></i>
+                  Delete</a>
+              </td>
+            </tr>
+           {% endfor %}
+          </table>
+
+
+
+
+
+
+
+
+
+
         </div>
       </div>
     </div>

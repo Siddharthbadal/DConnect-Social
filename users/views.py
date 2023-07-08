@@ -7,7 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .utilis import searchProfiles, paginateProjects
 from .models import Profile, Message
+from groups.models import Room, GroupMessage
 from .forms import CustomUserCreationForm, ProfileUpdateForm, SkillsForm, MessageForm
+
 
 
 def userRegister(request):
@@ -29,6 +31,7 @@ def userRegister(request):
 
     context = {'form':form, 'page':page}
     return render(request, 'users/login_register.html', context)
+
 
 
 
@@ -60,10 +63,12 @@ def userLogin(request):
     return render(request, 'users/login_register.html')
 
 
+
 def userLogOut(request):
     logout(request)
     messages.info(request, 'You have logged Out!')        
     return redirect('projects')
+
 
 
 def profiles(request):
@@ -79,10 +84,15 @@ def userProfile(request,pk):
     profile = get_object_or_404(Profile, id=pk)
     mainSkills = profile.skills_set.exclude(description__exact='')
     otherSkills = profile.skills_set.filter(description='')
+    rooms = profile.room_set.all()
+    room_messages= profile.groupmessage_set.all()
+
     context = {
         'profile':profile,
         'mainSkills':mainSkills,
-        'otherSkills':otherSkills
+        'otherSkills':otherSkills,
+        'rooms': rooms,
+        'room_messages': room_messages
         }
     return render(request, 'users/userProfile.html', context)
 
@@ -92,10 +102,12 @@ def userAccount(request):
     profile = request.user.profile
     skills = profile.skills_set.all()
     projects = profile.project_set.all()
+    rooms = profile.room_set.all()
     context={
             'profile' : profile,
             'skills': skills,
-            'projects':projects          
+            'projects':projects ,
+            'rooms': rooms        
              }
     return render(request, 'users/account.html', context)
 
